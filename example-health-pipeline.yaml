@@ -51,12 +51,6 @@ spec:
     params:
     - name: ARGS
       value: "new-app patientui"
-  - name: deploy-ol
-    taskRef:
-      name: openshift-client
-    params:
-    - name: ARGS
-      value: "new-app daihiraoka/ol-example-health:1"
   - name: deploy-adminui
     taskRef:
       name: openshift-client
@@ -65,14 +59,6 @@ spec:
     params:
     - name: ARGS
       value: "new-app adminui"
-  - name: expose-ol-example-health
-    taskRef:
-      name: openshift-client
-    runAfter:
-      - deploy-ol
-    params:
-    - name: ARGS
-      value: "expose svc/ol-example-health"
   - name: expose-patientui
     taskRef:
       name: openshift-client
